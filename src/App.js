@@ -17,10 +17,10 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Route path="/user/manga/:id">
+        <Route path="/:id/manga/">
           <TestUsername />
         </Route>
-        <Route path="/user/anime/:id">
+        <Route path="/:id/anime/">
           <TestUsername />
         </Route>
       </Router>

@@ -2,30 +2,32 @@ import React from 'react'
 
 function AnimeCard({ anime }) {
     return (
-        <div class="row">
-            <div class="example-2 card">
-                <div class="wrapper">
-                    <div class="header">
-                        <div class="date">
-                            <span class="day">12</span>
-                            <span class="month">Aug</span>
-                            <span class="year">2016</span>
-                        </div>
-                        <ul class="menu-content">
-                            <li>
-                                <a href="#" class="fa fa-bookmark-o"></a>
-                            </li>
-                            <li><a href="#" class="fa fa-heart-o"><span>18</span></a></li>
-                            <li><a href="#" class="fa fa-comment-o"><span>3</span></a></li>
-                        </ul>
+        <div class="card-view">
+            <div class="card-header " style={{
+                backgroundImage: `url(${anime.image_url})`
+            }}>
+                <div class="card-header-icon">
+                    <a href="#">
+                        <i class="material-icons header-icon"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-movie-content">
+                <div class="card-movie-content-head">
+                    <a href="#">
+                        <h3 class="card-movie-title">{anime.title}</h3>
+                    </a>
+                    <div class="ratings"><span>{anime.score}</span>/10</div>
+                </div>
+                <div class="card-movie-info">
+                    <div class="movie-running-time">
+                        <label>Last update</label>
+                        <span>Sun 8 Sept - 10:00PM</span>
                     </div>
-                    <div class="data">
-                        <div class="content">
-                            <span class="author">Jane Doe</span>
-                            <h1 class="title"><a href="#">Stranger Things: The sound of the Upside Down</a></h1>
-                            <p class="text">The antsy bingers of Netflix will eagerly anticipate the digital release of the Survive soundtrack, out today.</p>
-                            <a href="#" class="button">Read more</a>
-                        </div>
+                    <div class="movie-running-time">
+                        <label>Running time</label>
+                        <span>2hr 09min</span>
                     </div>
                 </div>
             </div>
