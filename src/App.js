@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
 import './assets/scss/main.scss';
-import Header from './components/Header';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-import MainContent from './components/MainContent'
 
-import TestUsername from './components/TestUsername'
+import AnimeList from './pages/AnimeList';
+import MangaList from './pages/MangaList';
+import Home from './pages/Home';
+
 //https://api.jikan.moe/v3/user/SnakeInMyBoots/mangalist
 //https://api.jikan.moe/v3/user/SnakeInMyBoots/animelists
 
@@ -17,11 +18,14 @@ function App() {
   return (
     <div className="App">
       <Router>
+      <Route path="/Home">
+          <Home />
+        </Route>
         <Route path="/:id/manga/">
-          <TestUsername />
+          <MangaList/>
         </Route>
         <Route path="/:id/anime/">
-          <TestUsername />
+        <AnimeList />
         </Route>
       </Router>
     </div>
