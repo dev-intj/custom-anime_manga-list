@@ -42,17 +42,25 @@ class AnimeList extends React.Component {
         const renderItems = currentItems.map((anime) => {
             return <AnimeCard anime={anime} key={anime.mal_id} />
         });
-
+        
         // Logic for displaying page numbers
         const pageNumbers = [];
         for (let i = 1; i <= Math.ceil(data.length / ItemsPerPage); i++) {
             pageNumbers.push(i);
         }
         const renderPageNumbers = pageNumbers.map(number => {
-            return /*#__PURE__*/(
+            let currentPage= this.state.currentPage;
+            let classtxt="";
+            if (currentPage == number){
+                classtxt = "page-item active";
+            }else{
+                classtxt = "page-item";
+            }
+            return (
                 React.createElement("li", {
                     key: number,
                     id: number,
+                    className:classtxt,
                     onClick: this.handleClick
                 },
 
@@ -60,15 +68,17 @@ class AnimeList extends React.Component {
 
 
         });
+        console.log(currentPage);
         return (
             <>
                 <Header />
                 <div className="container">
                     <div className="col-md-8 col-lg-10 pt-5 mt-5">
-                            {React.createElement("div",{className:"row align-items-center justify-content-center"}, null,renderItems,/*#__PURE__*/
-
-                                React.createElement("ul", { id: "page-numbers" },
-                                    renderPageNumbers))}
+                    <nav>
+                        {React.createElement("ul", { className:"pagination",id: "page-numbers" },renderPageNumbers)}
+                        </nav>
+                        {React.createElement("div", { className: "row align-items-center justify-content-center" }, null, renderItems)}
+                        
                     </div>
                 </div>
             </>

@@ -15,7 +15,7 @@ function AnimeCard({ anime }) {
 
             <div className="card-movie-content">
                 <div className="card-movie-content-head">
-                    <a href="#">
+                    <a href={anime.url} target="_blank">
                         <h3 className="card-movie-title">{anime.title}</h3>
                     </a>
                     <div className="ratings"><span>{anime.score}</span>/10</div>
